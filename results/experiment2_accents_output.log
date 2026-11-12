@@ -1,0 +1,104 @@
+  file 1/31 (altdeu10.abc); 241 usable melodies so far
+  file 2/31 (altdeu20.abc); 477 usable melodies so far
+  file 3/31 (ballad10.abc); 545 usable melodies so far
+  file 4/31 (ballad20.abc); 659 usable melodies so far
+  file 5/31 (ballad30.abc); 800 usable melodies so far
+  file 6/31 (ballad40.abc); 992 usable melodies so far
+  file 7/31 (ballad50.abc); 1164 usable melodies so far
+  file 8/31 (ballad60.abc); 1248 usable melodies so far
+  file 9/31 (ballad70.abc); 1347 usable melodies so far
+  file 10/31 (ballad80.abc); 1432 usable melodies so far
+  file 11/31 (boehme10.abc); 1831 usable melodies so far
+  file 12/31 (boehme20.abc); 2124 usable melodies so far
+  file 13/31 (dva0.abc); 2284 usable melodies so far
+  file 14/31 (erk10.abc); 2916 usable melodies so far
+  file 15/31 (erk20.abc); 3272 usable melodies so far
+  file 16/31 (erk30.abc); 3964 usable melodies so far
+  file 17/31 (erk5.abc); 3989 usable melodies so far
+  file 18/31 (fink0.abc); 4530 usable melodies so far
+  file 19/31 (folkHaydn.abc); 4574 usable melodies so far
+  file 20/31 (han1.abc); 4972 usable melodies so far
+  file 21/31 (han2.abc); 5431 usable melodies so far
+  file 22/31 (irl.abc); 5481 usable melodies so far
+  file 23/31 (kinder0.abc); 5684 usable melodies so far
+  file 24/31 (lot.abc); 6079 usable melodies so far
+  file 25/31 (lux.abc); 6641 usable melodies so far
+  file 26/31 (test0.abc); 6650 usable melodies so far
+  file 27/31 (test1.abc); 6668 usable melodies so far
+  file 28/31 (testd.abc); 6676 usable melodies so far
+  file 29/31 (teste.abc); 6684 usable melodies so far
+  file 30/31 (variant0.abc); 6707 usable melodies so far
+  file 31/31 (zuccal0.abc); 7369 usable melodies so far
+7369 melodies
+
+==============================================================================
+Duple vs triple/compound: n=7359, majority baseline 60.0%, 5 CV seeds
+==============================================================================
+
+[LDA] incremental accent sets
+configuration                                         accuracy        balanced
+A  constant only                                 89.2% ±0.0%    86.9% ±0.0%
+B  constant + duration                           91.2% ±0.0%    89.4% ±0.0%
+C  constant + melodic accents                    92.0% ±0.1%    90.6% ±0.1%
+D  constant + duration + melodic (all six)       93.3% ±0.1%    92.1% ±0.1%
+
+[LDA] leave-one-accent-out from all six
+configuration                                         accuracy        balanced
+all six minus constant                           91.8% ±0.0%    90.3% ±0.0%
+all six minus duration                           92.0% ±0.1%    90.6% ±0.1%
+all six minus interval                           92.9% ±0.0%    91.6% ±0.0%
+all six minus pivotal                            93.3% ±0.1%    92.1% ±0.1%
+all six minus contour                            92.6% ±0.1%    91.2% ±0.1%
+all six minus melodic                            93.3% ±0.1%    92.1% ±0.1%
+
+[LogReg] incremental accent sets
+configuration                                         accuracy        balanced
+A  constant only                                 92.6% ±0.0%    91.6% ±0.0%
+B  constant + duration                           93.6% ±0.0%    92.8% ±0.0%
+C  constant + melodic accents                    93.4% ±0.1%    92.8% ±0.1%
+D  constant + duration + melodic (all six)       94.7% ±0.1%    94.1% ±0.1%
+
+[LogReg] leave-one-accent-out from all six
+configuration                                         accuracy        balanced
+all six minus constant                           92.9% ±0.1%    92.2% ±0.1%
+all six minus duration                           93.4% ±0.1%    92.8% ±0.1%
+all six minus interval                           94.4% ±0.1%    93.9% ±0.1%
+all six minus pivotal                            94.7% ±0.1%    94.2% ±0.1%
+all six minus contour                            94.4% ±0.0%    93.8% ±0.0%
+all six minus melodic                            94.7% ±0.1%    94.2% ±0.1%
+
+==============================================================================
+12 notated meters: n=7346, majority baseline 30.3%, 5 CV seeds
+==============================================================================
+
+[LDA] incremental accent sets
+configuration                                         accuracy        balanced
+A  constant only                                 73.2% ±0.1%    57.6% ±0.4%
+B  constant + duration                           77.1% ±0.1%    62.6% ±0.3%
+C  constant + melodic accents                    76.6% ±0.1%    60.7% ±0.3%
+D  constant + duration + melodic (all six)       79.6% ±0.1%    64.5% ±0.2%
+
+[LDA] leave-one-accent-out from all six
+configuration                                         accuracy        balanced
+all six minus constant                           77.3% ±0.1%    63.7% ±0.1%
+all six minus duration                           76.6% ±0.1%    60.7% ±0.3%
+all six minus interval                           79.1% ±0.1%    64.1% ±0.2%
+all six minus pivotal                            79.5% ±0.1%    64.5% ±0.2%
+all six minus contour                            78.6% ±0.1%    63.9% ±0.3%
+all six minus melodic                            79.5% ±0.0%    64.4% ±0.1%
+
+[LogReg] incremental accent sets
+configuration                                         accuracy        balanced
+A  constant only                                 79.0% ±0.1%    61.1% ±0.3%
+B  constant + duration                           82.5% ±0.1%    65.1% ±0.3%
+C  constant + melodic accents                    80.6% ±0.2%    62.1% ±0.5%
+D  constant + duration + melodic (all six)       83.2% ±0.1%    65.9% ±0.5%
+
+[LogReg] leave-one-accent-out from all six
+configuration                                         accuracy        balanced
+all six minus constant                           81.5% ±0.1%    64.1% ±0.6%
+all six minus duration                           80.6% ±0.2%    62.1% ±0.5%
+all six minus interval                           83.0% ±0.1%    64.6% ±0.5%
+all six minus pivotal                            83.2% ±0.1%    65.3% ±0.4%
+all six minus contour                            82.5% ±0.1%    65.1% ±0.4%
+all six minus melodic                            83.3% ±0.1%    66.1% ±0.5%

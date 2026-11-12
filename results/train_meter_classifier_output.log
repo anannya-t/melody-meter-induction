@@ -1,0 +1,88 @@
+  file 1/31 (altdeu10.abc); 241 usable melodies so far
+  file 2/31 (altdeu20.abc); 477 usable melodies so far
+  file 3/31 (ballad10.abc); 545 usable melodies so far
+  file 4/31 (ballad20.abc); 659 usable melodies so far
+  file 5/31 (ballad30.abc); 800 usable melodies so far
+  file 6/31 (ballad40.abc); 992 usable melodies so far
+  file 7/31 (ballad50.abc); 1164 usable melodies so far
+  file 8/31 (ballad60.abc); 1248 usable melodies so far
+  file 9/31 (ballad70.abc); 1347 usable melodies so far
+  file 10/31 (ballad80.abc); 1432 usable melodies so far
+  file 11/31 (boehme10.abc); 1831 usable melodies so far
+  file 12/31 (boehme20.abc); 2124 usable melodies so far
+  file 13/31 (dva0.abc); 2284 usable melodies so far
+  file 14/31 (erk10.abc); 2916 usable melodies so far
+  file 15/31 (erk20.abc); 3272 usable melodies so far
+  file 16/31 (erk30.abc); 3964 usable melodies so far
+  file 17/31 (erk5.abc); 3989 usable melodies so far
+  file 18/31 (fink0.abc); 4530 usable melodies so far
+  file 19/31 (folkHaydn.abc); 4574 usable melodies so far
+  file 20/31 (han1.abc); 4972 usable melodies so far
+  file 21/31 (han2.abc); 5431 usable melodies so far
+  file 22/31 (irl.abc); 5481 usable melodies so far
+  file 23/31 (kinder0.abc); 5684 usable melodies so far
+  file 24/31 (lot.abc); 6079 usable melodies so far
+  file 25/31 (lux.abc); 6641 usable melodies so far
+  file 26/31 (test0.abc); 6650 usable melodies so far
+  file 27/31 (test1.abc); 6668 usable melodies so far
+  file 28/31 (testd.abc); 6676 usable melodies so far
+  file 29/31 (teste.abc); 6684 usable melodies so far
+  file 30/31 (variant0.abc); 6707 usable melodies so far
+  file 31/31 (zuccal0.abc); 7369 usable melodies so far
+
+7369 melodies with a single, well-defined time signature
+Meter counts: {'2/4': 2225, '4/4': 1916, '3/4': 1403, '6/8': 898, '3/8': 336, '4/2': 173, '6/4': 124, '3/2': 111, '2/2': 54, '4/1': 42, '3/1': 33, '6/2': 31, '4/8': 5, '9/8': 5, '5/8': 4, '2/1': 3, '5/4': 3, '7/8': 2, '1/4': 1}
+
+Building autocorrelation features (6 accent types x 16 lags) ...
+
+==============================================================================
+STUDY 1 (binary): duple vs triple/compound   n=7359   majority baseline (duple) = 60.0%
+Raw (un-normalized) features, LDA, stratified 10-fold CV
+==============================================================================
+Accent type               Ours   Paper (Essen)
+constant                 89.1%           91.5%
+duration                 88.4%           90.5%
+interval                 85.0%           85.9%
+pivotal                  77.2%           78.5%
+contour                  71.7%           73.1%
+melodic*                 74.5%           86.8%
+ALL 6 combined / LDA     93.3%           95.3%
+ALL 6 combined / LogReg   94.6%                
+ALL 6 combined / RandForest   95.2%                
+* melodic = simplified stand-in for Thomassen's accent, not the original model
+
+==============================================================================
+STUDY 2 (multi-class notated meter): 12 classes with >30 exemplars, n=7346
+majority baseline (2/4) = 30.3%   paper (Essen, LDA, all accents) = 83.2%
+Raw (un-normalized) features, all 96 features, stratified 10-fold CV
+==============================================================================
+Model           Accuracy  Balanced  Macro-F1
+LDA                79.8%     64.5%     0.617
+LogReg             83.1%     65.3%     0.665
+RandForest         82.2%     63.3%     0.667
+
+Per-class results for best model (LogReg):
+meter        n   recall  precision      F
+2/4       2225     0.87       0.86   0.87
+4/4       1916     0.85       0.84   0.84
+3/4       1403     0.87       0.86   0.86
+6/8        898     0.88       0.83   0.86
+3/8        336     0.52       0.65   0.58
+4/2        173     0.84       0.83   0.84
+6/4        124     0.38       0.52   0.44
+3/2        111     0.67       0.69   0.68
+2/2         54     0.02       0.17   0.03
+4/1         42     0.79       0.79   0.79
+3/1         33     0.73       0.80   0.76
+6/2         31     0.42       0.45   0.43
+Saved confusion matrix to /home/claude/meter_confusion_matrix.png
+
+==============================================================================
+EXTRA: beat-normalized features -> meter family (beats per measure)
+==============================================================================
+classes: [np.str_('2'), np.str_('3'), np.str_('4'), np.str_('6')]  n=7354   majority baseline (2) = 31.0%
+Previous rule (strongest candidate lag): strict 45.1%, balanced 40.3%
+Model           Accuracy  Balanced  Macro-F1
+LDA                81.8%     81.3%     0.808
+LogReg             83.6%     82.7%     0.825
+RandForest         83.2%     82.4%     0.823
