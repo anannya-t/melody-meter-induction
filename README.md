@@ -1,12 +1,12 @@
 # Melody-only meter induction: Stage 1 code
 
-Symbolic-melody baseline for the "Melody-Only Meter Induction" project note.
-It reproduces the autocorrelation approach of Toiviainen & Eerola (2006) on the
+Symbolic-melody baseline for Melody-Only Meter Induction
+-> reproduces the autocorrelation approach of Toiviainen & Eerola (2006) on the
 Essen Folksong Collection subset bundled with music21, then tests which accent
 types add information.
 
 Everything here works on symbolic scores (notes with onset, duration, pitch).
-There is no audio and no tala yet.
+There is no audio data yet.
 
 ## Setup
 
